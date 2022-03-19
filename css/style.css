@@ -452,6 +452,7 @@ a {
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .footer-container {
@@ -469,7 +470,6 @@ a {
 
 .footer-item-icons {
   margin-right: 10px;
-  margin-top: 20px;
 }
 
 .footer-item-icons:last-child {
