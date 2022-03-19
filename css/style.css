@@ -14,6 +14,8 @@
   --blue-hover: #2196f3;
   /*Фон кнопки  */
   --blue-bnt: #2196f3;
+  /* cubic */
+  --cubic-anm: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -87,13 +89,13 @@ a {
 
 .nav-item {
   margin-right: 50px;
+  position: relative;
 }
 
 .nav-item:last-child {
   margin-right: 0;
 }
 
-/* color-text */
 .nav-link {
   color: var(--main-text);
   font-weight: 500;
@@ -101,13 +103,25 @@ a {
   letter-spacing: 0.02em;
 }
 
-.nav-link.current {
-  color: var(--blue-hover);
-}
-
 .nav-link:hover,
 .nav-link:focus {
   color: var(--blue-hover);
+  transition: color 250ms var(--cubic-anm);
+}
+
+.current {
+  color: var(--blue-hover);
+}
+
+.current::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--blue-bnt);
+  position: absolute;
+  border-radius: 2px;
+  top: 275%;
 }
 
 .contact-list {
@@ -140,11 +154,13 @@ a {
 .contact-link:hover,
 .contact-link:focus {
   color: var(--blue-hover);
+  transition: color 250ms var(--cubic-anm);
 }
 
 .contact-link:hover .mail-icon,
 .contact-link:focus .mail-icon {
   fill: var(--blue-hover);
+  transition: fill 250ms var(--cubic-anm);
 }
 
 /* Hero */
@@ -187,6 +203,38 @@ a {
   background: var(--blue-bnt);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: scale(x);
+
+  width: 500px;
+  height: 550px;
+  background-color: #fff;
+}
+
+.btn-modal-close {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 /* section Content */
